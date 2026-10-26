@@ -1,0 +1,12 @@
+// Inside the static Iterator func(ArrayList mylist) method:
+static Iterator func(ArrayList mylist) {
+    Iterator it = mylist.iterator();
+    while(it.hasNext()) {
+        Object element = it.next();
+        // Skip Integer objects until we hit the first String type (usually "###")
+        if (element instanceof String) { 
+            break;
+        }
+    }
+    return it;
+}
