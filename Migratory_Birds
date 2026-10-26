@@ -1,0 +1,22 @@
+import java.util.*;
+
+public class MigratoryBirds {
+    public static int migratoryBirds(List<Integer> arr) {
+        int[] counts = new int[6]; // IDs are 1 to 5
+        for (int id : arr) {
+            counts[id]++;
+        }
+        
+        int maxCount = 0;
+        int maxId = 0;
+        
+        // Starting from 1 ensures that in a tie, the lowest ID is chosen naturally
+        for (int i = 1; i <= 5; i++) {
+            if (counts[i] > maxCount) {
+                maxCount = counts[i];
+                maxId = i;
+            }
+        }
+        return maxId;
+    }
+}
